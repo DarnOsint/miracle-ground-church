@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+
+  --color-night-950: #0b1220;
+  --color-night-900: #101a30;
+  --color-night-800: #16233f;
+  --color-night-700: #1e2f52;
+
+  --color-gold-300: #efd98a;
+  --color-gold-400: #e6c86a;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8942a;
+
+  --color-cream-50: #fbfaf5;
+  --color-cream-100: #f4f0e4;
+  --color-cream-200: #e9e2cd;
+
+  --shadow-glow: 0 0 80px 20px rgba(212, 175, 55, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream-50);
+  color: var(--color-night-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-gold-500);
+  color: var(--color-night-950);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s ease-out both;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}
