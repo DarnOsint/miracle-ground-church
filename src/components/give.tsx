@@ -4,9 +4,9 @@ import { ArrowIcon, HeartIcon, PhoneIcon } from "@/components/icons";
 
 export function Give() {
   return (
-    <section
+      <section
       id="give"
-      className="scroll-mt-24 bg-gradient-to-b from-night-950 to-night-900 py-24 text-cream-50 sm:py-32"
+      className="scroll-mt-24 bg-gradient-to-br from-amber-700 via-orange-600 to-rose-600 py-24 text-cream-50 sm:py-32"
     >
       <Container className="space-y-16">
         <SectionHeading

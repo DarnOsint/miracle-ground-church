@@ -21,9 +21,9 @@ export function Events() {
               key={`${event.title}`}
               className="group flex flex-col gap-5 rounded-3xl border border-night-900/10 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl sm:flex-row sm:items-center"
             >
-              <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center rounded-2xl bg-night-900 text-center">
-                <CalendarIcon className="h-6 w-6 text-gold-400" />
-                <span className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-cream-50/70">
+              <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 text-center shadow-lg shadow-rose-500/25">
+                <CalendarIcon className="h-6 w-6 text-white" />
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-white/90">
                   Weekly
                 </span>
               </div>
@@ -31,14 +31,14 @@ export function Events() {
                 <h3 className="font-serif text-xl font-semibold text-night-900">
                   {event.title}
                 </h3>
-                <p className="mt-1 text-sm font-semibold text-gold-600">
+                <p className="mt-1 text-sm font-bold text-gold-600">
                   {event.date} · {event.time}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-night-900/70">
                   {event.description}
                 </p>
               </div>
-              <span className="hidden shrink-0 items-center gap-2 text-xs font-medium text-night-900/50 sm:flex">
+              <span className="hidden shrink-0 items-center gap-2 rounded-full bg-teal-500/10 px-3.5 py-1.5 text-xs font-semibold text-teal-600 sm:flex">
                 <ClockIcon className="h-4 w-4" />
                 {event.time}
               </span>

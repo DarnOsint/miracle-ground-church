@@ -1,9 +1,9 @@
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappHref } from "@/lib/site";
 
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/21192599955"
+      href={whatsappHref(siteConfig.phone)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"

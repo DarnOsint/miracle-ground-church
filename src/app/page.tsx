@@ -4,8 +4,12 @@ import { About } from "@/components/about";
 import { ScriptureSlideshow } from "@/components/scripture-slideshow";
 import { Beliefs } from "@/components/beliefs";
 import { Ministries } from "@/components/ministries";
+import { Sermons } from "@/components/sermons";
 import { Services } from "@/components/services";
+import { Branches } from "@/components/branches";
 import { Events } from "@/components/events";
+import { GallerySlideshow } from "@/components/gallery";
+import { Leadership } from "@/components/leadership";
 import { Visit } from "@/components/visit";
 import { PrayerRequest } from "@/components/prayer-request";
 import { Give } from "@/components/give";
@@ -23,8 +27,12 @@ export default function Home() {
         <ScriptureSlideshow />
         <Beliefs />
         <Ministries />
+        <Sermons />
         <Services />
+        <Branches />
         <Events />
+        <GallerySlideshow />
+        <Leadership />
         <Visit />
         <PrayerRequest />
         <Give />

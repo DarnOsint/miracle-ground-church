@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-nunito);
+  --font-script: var(--font-caveat);
 
-  --color-night-950: #0b1220;
-  --color-night-900: #101a30;
-  --color-night-800: #16233f;
-  --color-night-700: #1e2f52;
+  --color-night-950: #21170f;
+  --color-night-900: #2d2116;
+  --color-night-800: #463324;
+  --color-night-700: #5d4632;
 
-  --color-gold-300: #efd98a;
-  --color-gold-400: #e6c86a;
-  --color-gold-500: #d4af37;
-  --color-gold-600: #b8942a;
+  --color-gold-300: #ffd166;
+  --color-gold-400: #ffb703;
+  --color-gold-500: #ff9e00;
+  --color-gold-600: #f77f00;
+  --color-gold-700: #e05f00;
 
-  --color-cream-50: #fbfaf5;
-  --color-cream-100: #f4f0e4;
-  --color-cream-200: #e9e2cd;
+  --color-cream-50: #fffaf2;
+  --color-cream-100: #fdeee0;
+  --color-cream-200: #f9e0c8;
 
-  --shadow-glow: 0 0 80px 20px rgba(212, 175, 55, 0.08);
+  --shadow-glow: 0 14px 60px -12px rgba(255, 158, 0, 0.4);
 }
 
 html {
@@ -34,7 +36,52 @@ body {
 
 ::selection {
   background-color: var(--color-gold-500);
-  color: var(--color-night-950);
+  color: #fffdf7;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Decorative texture helpers */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 158, 0, 0.22) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+.bg-dots-white {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.bg-dots-violet {
+  background-image: radial-gradient(rgba(120, 90, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.bg-grid-faint {
+  background-image:
+    linear-gradient(rgba(45, 33, 22, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 33, 22, 0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 11s ease-in-out infinite;
 }
 
 @keyframes fade-up {
@@ -66,7 +113,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
+  .animate-fade-up,
+  .animate-float,
+  .animate-float-slow {
     animation: none;
   }
 }

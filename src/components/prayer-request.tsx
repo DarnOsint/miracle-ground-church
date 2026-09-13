@@ -26,15 +26,16 @@ export function PrayerRequest() {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(212,175,55,0.12),transparent_45%)]" />
       <Container className="relative max-w-4xl">
-        <div className="overflow-hidden rounded-3xl border border-night-900/10 bg-white shadow-xl">
-          <div className="flex flex-col gap-10 bg-night-950 p-8 text-center text-cream-50 sm:p-12">
-            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold-500/15">
-              <HeartIcon className="h-6 w-6 text-gold-400" />
+        <div className="overflow-hidden rounded-3xl border border-night-900/10 bg-white shadow-xl shadow-rose-500/10">
+          <div className="relative flex flex-col gap-10 overflow-hidden bg-gradient-to-br from-rose-500 via-orange-400 to-amber-400 p-8 text-center text-cream-50 sm:p-12">
+            <div className="absolute inset-0 bg-dots-white" />
+            <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/25 backdrop-blur-sm">
+              <HeartIcon className="h-6 w-6 text-white" />
             </span>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
+            <h2 className="relative font-serif text-3xl font-semibold text-white drop-shadow-sm sm:text-4xl">
               We Would Love to Pray With You
             </h2>
-            <p className="mx-auto max-w-xl text-cream-50/80">
+            <p className="relative mx-auto max-w-xl text-white/90">
               Share your prayer request with us. Our prayer team stands in
               faith with you — every request is held in total confidentiality.
             </p>
@@ -98,7 +99,7 @@ export function PrayerRequest() {
               </label>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-8 py-4 text-sm font-semibold text-night-950 shadow-md shadow-gold-500/25 transition-all hover:-translate-y-0.5 hover:bg-gold-400 sm:justify-self-start"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-night-950 px-8 py-4 text-sm font-bold text-cream-50 shadow-xl shadow-night-950/20 transition-all hover:-translate-y-0.5 hover:bg-night-800 sm:justify-self-start"
               >
                 <MailIcon className="h-4 w-4" />
                 Send Prayer Request

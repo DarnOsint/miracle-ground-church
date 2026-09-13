@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Caveat, Fraunces, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { JsonLd } from "@/components/json-ld";
 
-const inter = Inter({
-  variable: "--font-inter",
+const nunito = Nunito_Sans({
+  variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   display: "swap",
 });
@@ -88,7 +94,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} antialiased`}
+      className={`${nunito.variable} ${fraunces.variable} ${caveat.variable} antialiased`}
     >
       <body>
         <JsonLd />

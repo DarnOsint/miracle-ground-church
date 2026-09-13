@@ -17,24 +17,32 @@ const pillars = [
   },
 ] as const;
 
+const pillarChips = [
+  { bg: "bg-amber-500/15 text-amber-600" },
+  { bg: "bg-rose-500/15 text-rose-600" },
+  { bg: "bg-teal-500/15 text-teal-600" },
+] as const;
+
 export function About() {
   return (
     <section id="about" className="relative scroll-mt-24 bg-cream-50 py-24 sm:py-32">
       <Container className="grid items-center gap-16 lg:grid-cols-2">
         <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-night-800 via-night-900 to-night-950 p-10 shadow-2xl shadow-night-900/20 sm:p-14">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(212,175,55,0.18),transparent_60%)]" />
-            <CrossIcon className="relative mx-auto h-24 w-24 text-gold-500/90" />
-            <DoveIcon className="relative mx-auto mt-6 h-14 w-14 text-cream-50/70" />
-            <p className="relative mt-8 text-center font-serif text-lg italic leading-relaxed text-cream-50/85">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-rose-500 to-violet-600 p-10 shadow-2xl shadow-rose-500/30 sm:p-14">
+            <div className="absolute inset-0 bg-dots-white" />
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/20 blur-2xl" />
+            <CrossIcon className="relative mx-auto h-24 w-24 text-cream-50/95 drop-shadow-md" />
+            <DoveIcon className="relative mx-auto mt-6 h-14 w-14 text-white/80" />
+            <p className="relative mt-8 text-center font-serif text-lg italic leading-relaxed text-white/95">
               “I was glad when they said unto me, Let us go into the house of
               the Lord.”
             </p>
-            <p className="relative mt-3 text-center text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
+            <p className="relative mt-3 text-center font-script text-xl font-semibold text-gold-300">
               Psalm 122:1
             </p>
           </div>
-          <div className="absolute -bottom-6 -right-6 -z-10 h-40 w-40 rounded-3xl border-2 border-gold-500/40" />
+          <div className="absolute -bottom-6 -right-6 -z-10 h-40 w-40 rounded-3xl border-2 border-gold-500/50" />
+          <div className="absolute -left-6 -top-6 -z-10 h-32 w-32 rounded-full bg-teal-400/40 blur-xl" />
         </div>
 
         <div className="flex flex-col gap-8">
@@ -62,22 +70,30 @@ export function About() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="rounded-2xl border border-night-900/10 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
-              >
-                <p className="font-serif text-lg font-semibold text-night-900">
-                  {pillar.title}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-night-900/70">
-                  {pillar.text}
-                </p>
-              </div>
-            ))}
+            {pillars.map((pillar, i) => {
+              const chip = pillarChips[i % pillarChips.length];
+              return (
+                <div
+                  key={pillar.title}
+                  className="group rounded-2xl border border-night-900/10 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                >
+                  <span
+                    className={`mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full ${chip.bg}`}
+                  >
+                    <CrossIcon className="h-4 w-4" />
+                  </span>
+                  <p className="font-serif text-lg font-semibold text-night-900">
+                    {pillar.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-night-900/70">
+                    {pillar.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
-          <p className="font-serif text-lg font-medium text-gold-600">
+          <p className="font-serif text-xl font-semibold text-gold-600">
             {siteConfig.founded}
           </p>
         </div>

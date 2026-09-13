@@ -123,6 +123,19 @@ export function HeartIcon({ className }: IconProps) {
   );
 }
 
+export function TikTokIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M19.6 6.7a5 5 0 0 1-3.2-4.2h-3v12.83a2.2 2.2 0 1 1-2.2-2.2c.24 0 .47.04.69.11V10.2a5.13 5.13 0 0 0-.69-.05 5.2 5.2 0 1 0 5.2 5.2V8.1a7.9 7.9 0 0 0 4.72 1.5V6.66l-.52.04Z" />
+    </svg>
+  );
+}
+
 export function SparkleIcon({ className }: IconProps) {
   return (
     <svg

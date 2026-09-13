@@ -34,12 +34,20 @@ export function ScriptureSlideshow() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-night-950 via-night-900 to-night-950 py-20 text-cream-50 sm:py-24"
+      className="relative overflow-hidden bg-gradient-to-br from-violet-700 via-purple-600 to-fuchsia-500 py-20 text-cream-50 sm:py-24"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.1)_0%,transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="pointer-events-none absolute inset-0 bg-dots-white" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,209,102,0.25)_0%,transparent_55%)]" />
+      <div className="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-rose-400/30 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 top-1/3 h-72 w-72 rounded-full bg-amber-400/30 blur-3xl" />
+      <div className="pointer-events-none absolute left-[10%] top-[18%] animate-float">
+        <span className="block h-3 w-3 rounded-full bg-gold-300" />
+      </div>
+      <div className="pointer-events-none absolute right-[12%] bottom-[18%] animate-float-slow">
+        <span className="block h-2.5 w-2.5 rounded-full bg-rose-200" />
+      </div>
 
       <Container className="relative">
         <div className="relative mx-auto flex max-w-3xl flex-col items-center">
@@ -55,13 +63,13 @@ export function ScriptureSlideshow() {
                 )}
                 aria-hidden={i !== index}
               >
-                <span className="mb-4 font-serif text-6xl leading-none text-gold-500/40">
+                <span className="mb-4 font-serif text-6xl leading-none text-gold-300/70">
                   &ldquo;
                 </span>
                 <blockquote className="font-serif text-2xl font-medium italic leading-snug text-cream-50 sm:text-3xl md:text-4xl">
                   {slide.verse}
                 </blockquote>
-                <figcaption className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
+                <figcaption className="mt-6 font-script text-2xl font-semibold text-gold-300">
                   {slide.reference}
                 </figcaption>
               </figure>

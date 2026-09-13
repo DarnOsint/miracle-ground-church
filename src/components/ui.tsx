@@ -35,14 +35,16 @@ export function SectionHeading({
         align === "center" && "items-center text-center",
       )}
     >
-      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold-600">
-        <span className="h-px w-6 bg-gold-500" />
+      <span className="inline-flex items-center gap-2 font-script text-2xl leading-none text-gold-600">
+        <span className="h-0.5 w-6 rounded-full bg-gradient-to-r from-transparent to-gold-500" />
         {eyebrow}
-        {align === "center" && <span className="h-px w-6 bg-gold-500" />}
+        {align === "center" && (
+          <span className="h-0.5 w-6 rounded-full bg-gradient-to-l from-transparent to-gold-500" />
+        )}
       </span>
       <h2
         className={cn(
-          "font-serif text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl",
+          "font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl",
           dark ? "text-cream-50" : "text-night-900",
         )}
       >
