@@ -37,7 +37,8 @@
     "street": "Atla Bara, Along Juba University Giyada Road",
     "landmark": "Opposite Ever Green Chinese Hospital",
     "city": "Juba, South Sudan",
-    "googleMapsQuery": "Atla Bara, Along Juba University Giyada Road, Opposite Ever Green Chinese Hospital, Juba, South Sudan"
+    "googleMapsQuery": "RHMQ+Q7C, Extensions, Juba, South Sudan",
+    "googleMapsUrl": "https://www.google.com/maps?rlz=1C5AJCO_enNG1200NG1200&uoa=1&geocode=KuURwCsMgRIXMcqCkdVLcItT&daddr=RHMQ%2BQ7C,+Extensions,+South+Sudan"
   },
   "phone": "+211 925 999 555",
   "email": "info@miraclegroundchurch.com",
@@ -148,21 +149,60 @@
     }
   ],
   "navigation": [
-    { "label": "Home", "href": "#home" },
-    { "label": "About", "href": "#about" },
-    { "label": "Ministries", "href": "#ministries" },
-    { "label": "Sermons", "href": "#sermons" },
-    { "label": "Services", "href": "#services" },
-    { "label": "Events", "href": "#events" },
-    { "label": "Visit Us", "href": "#visit" },
-    { "label": "Give", "href": "#give" }
+    {
+      "label": "Home",
+      "href": "#home"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Ministries",
+      "href": "#ministries"
+    },
+    {
+      "label": "Sermons",
+      "href": "#sermons"
+    },
+    {
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "label": "Events",
+      "href": "#events"
+    },
+    {
+      "label": "Visit Us",
+      "href": "#visit"
+    },
+    {
+      "label": "Give",
+      "href": "#give"
+    }
   ],
   "socialLinks": [
-    { "label": "Facebook", "href": "#" },
-    { "label": "Instagram", "href": "#" },
-    { "label": "YouTube", "href": "#" },
-    { "label": "TikTok", "href": "https://www.tiktok.com/@miracleground" },
-    { "label": "WhatsApp", "href": "https://wa.me/21192599955" }
+    {
+      "label": "Facebook",
+      "href": "#"
+    },
+    {
+      "label": "Instagram",
+      "href": "#"
+    },
+    {
+      "label": "YouTube",
+      "href": "#"
+    },
+    {
+      "label": "TikTok",
+      "href": "https://www.tiktok.com/@miracleground"
+    },
+    {
+      "label": "WhatsApp",
+      "href": "https://wa.me/21192599955"
+    }
   ],
   "gallery": [],
   "sermons": [],
