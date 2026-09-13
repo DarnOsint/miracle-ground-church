@@ -39,10 +39,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [{ url: "/images/logo.jpg" }],
   },
-  icons: {
-    icon: "/images/logo.jpg",
-    apple: "/images/logo.jpg",
-  },
 };
 
 export default function RootLayout({
