@@ -31,12 +31,17 @@ src/
     site-header.tsx # Sticky nav + mobile menu
     hero.tsx        # Full-screen welcome + verse + service strip
     about.tsx       # Welcome / About the church
+    beliefs.tsx     # What We Believe
     ministries.tsx  # Ministry cards
     services.tsx    # Service times
+    events.tsx      # Upcoming events
     visit.tsx       # Address, phone, embedded Google Map
+    prayer-request.tsx # Prayer request form (mailto-based)
+    give.tsx        # Giving section
     connect.tsx     # Call-to-action banner
     site-footer.tsx
-    logo.tsx        # Monogram placeholder
+    logo.tsx        # Uses /public/images/logo.jpg
+    whatsapp-button.tsx # Floating WhatsApp chat
     ui.tsx          # Container + SectionHeading
     icons.tsx       # Inline SVG icon set
   lib/
@@ -61,10 +66,15 @@ whole site updates.
 
 ## Roadmap (planned growth)
 
-- [ ] Real logo + photo gallery
-- [ ] Sermons / media hub
-- [ ] Events & announcements calendar
-- [ ] Online giving
-- [ ] Prayer request form
+- [x] Real logo in header, hero, favicon
+- [x] Beliefs / What We Believe
+- [x] Events section
+- [x] Prayer request form
+- [x] Online giving section
+- [x] Floating WhatsApp chat
+- [ ] Photo gallery & real photography
+- [ ] Sermons / media hub with audio & video
+- [ ] Events calendar & announcements
+- [ ] Online giving (mobile money / bank)
 - [ ] Pastor & leadership page
-- [ ] Multi-language (English / Arabic / Juba Arabic)
+- [ ] Multi-language (English / Arabic)

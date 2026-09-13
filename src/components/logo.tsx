@@ -1,12 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
-/**
- * Logo — shows a monogram badge until the real logo file is provided.
- * To use the actual logo: drop it at /public/images/logo.png and swap the
- * <div> below for an <Image src="/images/logo.png" ... />.
- */
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
     <Link
@@ -16,13 +12,17 @@ export function Logo({ dark = false }: { dark?: boolean }) {
     >
       <span
         className={cn(
-          "flex h-11 w-11 items-center justify-center rounded-full border font-serif text-base font-bold tracking-wider transition-transform duration-300 group-hover:scale-105",
-          dark
-            ? "border-gold-400/60 bg-night-900 text-gold-400"
-            : "border-gold-600/50 bg-night-900 text-gold-400",
+          "relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border shadow-sm transition-transform duration-300 group-hover:scale-105",
+          dark ? "border-gold-400/50" : "border-gold-600/40",
         )}
       >
-        {siteConfig.monogram}
+        <Image
+          src="/images/logo.jpg"
+          alt={`${siteConfig.name} logo`}
+          width={44}
+          height={44}
+          className="h-full w-full object-cover"
+        />
       </span>
       <span className="flex flex-col leading-tight">
         <span
@@ -33,12 +33,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
         >
           {siteConfig.shortName}
         </span>
-        <span
-          className={cn(
-            "text-[10px] font-medium uppercase tracking-[0.28em]",
-            "text-gold-600",
-          )}
-        >
+        <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-gold-600">
           International Church
         </span>
       </span>

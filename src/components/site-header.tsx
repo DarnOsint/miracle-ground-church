@@ -47,7 +47,7 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="#connect"
+            href="#visit"
             className="rounded-full bg-night-900 px-5 py-2.5 text-sm font-semibold text-cream-50 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-night-800 hover:shadow-md"
           >
             Plan a Visit
@@ -93,7 +93,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#connect"
+              href="#visit"
               onClick={() => setOpen(false)}
               className="mt-6 inline-flex w-max items-center rounded-full bg-gold-500 px-7 py-3.5 text-sm font-semibold text-night-950"
             >

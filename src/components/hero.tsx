@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/ui";
 import { ArrowIcon, ClockIcon, PinIcon, SparkleIcon } from "@/components/icons";
@@ -18,6 +19,17 @@ export function Hero() {
 
       <Container className="relative flex min-h-svh flex-col justify-center pb-16 pt-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <span className="animate-fade-up mb-8 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-gold-500/40 bg-night-900/60 p-1.5 shadow-glow sm:h-28 sm:w-28">
+            <Image
+              src="/images/logo.jpg"
+              alt={`${siteConfig.name} logo`}
+              width={96}
+              height={96}
+              priority
+              className="h-full w-full rounded-full object-cover"
+            />
+          </span>
+
           <span className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-gold-300">
             <PinIcon className="h-3.5 w-3.5" />
             Juba &middot; South Sudan

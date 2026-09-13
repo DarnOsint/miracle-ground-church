@@ -16,6 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} | Juba, South Sudan`,
     template: `%s | ${siteConfig.name}`,
@@ -36,6 +37,11 @@ export const metadata: Metadata = {
       "A place of miracles, prayer and purpose in Juba, South Sudan.",
     type: "website",
     locale: "en_US",
+    images: [{ url: "/images/logo.jpg" }],
+  },
+  icons: {
+    icon: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
   },
 };
 
