@@ -33,7 +33,12 @@ export function Logo({ dark = false }: { dark?: boolean }) {
         >
           {siteConfig.shortName}
         </span>
-        <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-gold-600">
+        <span
+          className={cn(
+            "text-[10px] font-medium uppercase tracking-[0.28em]",
+            dark ? "text-gold-400" : "text-gold-600",
+          )}
+        >
           International Church
         </span>
       </span>
