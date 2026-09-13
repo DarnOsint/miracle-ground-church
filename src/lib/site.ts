@@ -50,7 +50,7 @@ export const siteConfig = {
   phone: "+211 925 999 555",
   phoneHref: "tel:+21192599955",
   email: "info@miraclegroundchurch.com",
-  url: "https://miracle-ground-church.vercel.app",
+  url: "https://www.miraclegroundinternationalchurch.com",
   founded: "Miracle Ground International Church, Juba",
   services: [
     {
