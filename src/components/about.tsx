@@ -53,9 +53,11 @@ export function About() {
               Word and the transforming power of prayer.
             </p>
             <p className="leading-relaxed">
-              Whether you are searching, new in your faith or a seasoned
-              believer, there is a place for you here. Come as you are, and
-              watch God meet you right where you stand.
+              As one of Juba&rsquo;s welcoming English-speaking churches, we
+              worship in English at 8:30 AM and in Arabic at 10:30 AM every
+              Sunday. Whether you are searching, new in your faith or a
+              seasoned believer, there is a place for you here. Come as you
+              are, and watch God meet you right where you stand.
             </p>
           </div>
 

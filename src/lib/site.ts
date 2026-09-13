@@ -8,6 +8,38 @@ export const siteConfig = {
       "“For with God nothing shall be impossible.”",
     reference: "Luke 1:37",
   },
+  scriptures: [
+    {
+      verse:
+        "“Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.”",
+      reference: "Joshua 1:9",
+    },
+    {
+      verse:
+        "“I can do all things through Christ which strengtheneth me.”",
+      reference: "Philippians 4:13",
+    },
+    {
+      verse:
+        "“But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.”",
+      reference: "Isaiah 40:31",
+    },
+    {
+      verse:
+        "“Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you.”",
+      reference: "Matthew 7:7",
+    },
+    {
+      verse:
+        "“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”",
+      reference: "Matthew 21:22",
+    },
+    {
+      verse:
+        "“The LORD is my shepherd; I shall not want.”",
+      reference: "Psalm 23:1",
+    },
+  ] as const,
   address: {
     street: "Atla Bara, Along Juba University Giyada Road",
     landmark: "Opposite Ever Green Chinese Hospital",

@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
+import { ScriptureSlideshow } from "@/components/scripture-slideshow";
 import { Beliefs } from "@/components/beliefs";
 import { Ministries } from "@/components/ministries";
 import { Services } from "@/components/services";
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <ScriptureSlideshow />
         <Beliefs />
         <Ministries />
         <Services />
