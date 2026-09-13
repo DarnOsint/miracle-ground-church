@@ -77,20 +77,25 @@ export function SiteHeader() {
 
       {open
         ? createPortal(
-            <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-gradient-to-br from-night-950 via-night-900 to-night-800 lg:hidden">
-              <div className="flex h-20 items-center justify-between px-5 sm:px-8">
-                <Logo dark />
+            <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-gradient-to-br from-cream-50 via-cream-100 to-gold-200 lg:hidden">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_12%,rgba(247,127,0,0.18)_0%,transparent_45%)]" />
+              <div className="pointer-events-none absolute -left-24 top-1/3 h-64 w-64 rounded-full bg-rose-500/10 blur-3xl" />
+              <div className="pointer-events-none absolute -right-24 bottom-10 h-64 w-64 rounded-full bg-gold-400/25 blur-3xl" />
+
+              <div className="relative flex h-20 items-center justify-between px-5 sm:px-8">
+                <Logo />
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cream-50/20 text-cream-50 transition-colors hover:border-gold-400/60"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-night-900/15 bg-white/60 text-night-900 transition-colors hover:border-gold-600 hover:text-gold-600"
                   aria-label="Close menu"
                 >
                   <CloseIcon className="h-5 w-5" />
                 </button>
               </div>
+
               <nav
-                className="flex flex-1 flex-col justify-center gap-6 px-8"
+                className="relative flex flex-1 flex-col justify-center gap-4 px-8"
                 aria-label="Mobile"
               >
                 {navigation.map((item, i) => (
@@ -98,20 +103,21 @@ export function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="font-serif text-3xl font-semibold text-cream-50 transition-colors hover:text-gold-400"
+                    className="group flex items-center gap-3 border-b border-night-900/10 pb-5 font-serif text-3xl font-semibold text-night-950 transition-all hover:translate-x-1.5 hover:text-gold-600"
                     style={{ animationDelay: `${i * 60}ms` }}
                   >
+                    <span className="h-6 w-1.5 rounded-full bg-gradient-to-b from-gold-500 to-rose-500 opacity-0 transition-opacity group-hover:opacity-100" />
                     {item.label}
                   </a>
                 ))}
                 <a
                   href="#visit"
                   onClick={() => setOpen(false)}
-                  className="mt-6 inline-flex w-max items-center rounded-full bg-gold-500 px-7 py-3.5 text-sm font-semibold text-night-950"
+                  className="mt-8 inline-flex w-max items-center gap-2 rounded-full bg-night-950 px-8 py-4 text-sm font-semibold text-cream-50 shadow-xl shadow-night-950/15 transition-all hover:-translate-y-0.5 hover:bg-night-800"
                 >
                   Plan a Visit
                 </a>
-                <p className="mt-10 text-sm text-cream-50/60">
+                <p className="mt-6 text-sm font-semibold text-night-900/60">
                   {siteConfig.phone}
                 </p>
               </nav>
