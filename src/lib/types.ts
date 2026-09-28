@@ -51,6 +51,17 @@ export interface Sermon {
   youtubeId?: string;
 }
 
+export interface BlogPost {
+  id: string;
+  title: string;
+  author: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  /** Blank line between paragraphs. "##" opens a heading; "1." opens a numbered point. */
+  body: string;
+}
+
 export interface Leader {
   name: string;
   role: string;
@@ -104,6 +115,7 @@ export interface SiteContent {
   socialLinks: SocialLink[];
   gallery: GalleryItem[];
   sermons: Sermon[];
+  posts: BlogPost[];
   leaders: Leader[];
   branches: Branch[];
 }

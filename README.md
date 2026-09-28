@@ -35,6 +35,8 @@ src/
     about.tsx        # Welcome / About the church
     beliefs.tsx      # What We Believe
     ministries.tsx   # Ministry cards
+    blog.tsx         # Blog section in the middle of the homepage
+    blog-post-body.tsx # Renders a post's full message (paragraphs, headings, numbered points)
     sermons.tsx      # Sermons & media
     services.tsx     # Service times
     branches.tsx     # Branch locations (HQ badge)
@@ -45,6 +47,9 @@ src/
     prayer-request.tsx # Prayer request form (mailto-based)
     give.tsx         # Giving section
     connect.tsx      # Call-to-action banner
+  app/blog/
+    page.tsx         # /blog — all articles
+    [slug]/page.tsx  # /blog/<post> — the full message
   admin/
     admin-editor.tsx # Tabbed content editor
   lib/
@@ -59,7 +64,8 @@ src/
 ## Editing Content — Admin Panel
 
 Everything (name, phone, address, service times, ministries, scripture, gallery,
-sermons, leadership, branches, events, links) is edited from the admin panel:
+sermons, **blog posts**, leadership, branches, events, links) is edited from the
+admin panel:
 
 1. Open `/admin` on the site (or `http://localhost:3000/admin` locally).
 2. Sign in with the **admin password**.
@@ -103,6 +109,25 @@ Church online presence is configured in `src/data/site-content.json` →
 - **Instagram:** @miraclegroundsjuba
 - **YouTube:** @miraclegroundsjuba
 
+## Writing a Blog Post
+
+Blog posts live in the **Blog** tab of the admin panel. Each post has a title,
+author, date, category, a short **summary** and the **full message**.
+
+- The **summary** is what visitors read on the homepage card and on `/blog`.
+- Clicking a card opens `/blog/<post-slug>`, which shows the **full message**.
+
+Inside the full message box, formatting is done with plain text:
+
+| To do this | Write this |
+| ---------- | ---------- |
+| A new paragraph | Leave a blank line |
+| A heading | Start the line with `##` |
+| A numbered point | Start the line with `1.`, `2.`, … |
+
+The URL slug is generated from the title automatically, so renaming a post
+changes its link.
+
 ## Roadmap (planned growth)
 
 - [x] Real logo in header, hero, favicon
@@ -117,6 +142,7 @@ Church online presence is configured in `src/data/site-content.json` →
 - [x] Leadership section
 - [x] Branch locations
 - [x] Vibrant sunrise re-theme (warm Festival of God palette)
+- [x] Blog section with full article pages
 - [ ] Photo gallery & real photography
 - [ ] Sermons audio & video uploads
 - [ ] Events calendar & announcements

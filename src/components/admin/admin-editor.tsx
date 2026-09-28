@@ -3,8 +3,16 @@
 import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { SiteContent } from "@/lib/types";
+import { cn } from "@/lib/cn";
 
-type Field = { key: string; textarea?: boolean; checkbox?: boolean };
+type Field = {
+  key: string;
+  label?: string;
+  textarea?: boolean;
+  rows?: number;
+  wide?: boolean;
+  checkbox?: boolean;
+};
 
 const simpleSections: {
   key: keyof SiteContent;
@@ -72,6 +80,15 @@ const simpleSections: {
       { key: "reference" },
     ],
   },
+];
+
+const postFields: Field[] = [
+  { key: "title", label: "Title" },
+  { key: "author", label: "Author" },
+  { key: "date", label: "Date (e.g. 2026-09-28)" },
+  { key: "category", label: "Category" },
+  { key: "excerpt", label: "Summary shown on the homepage card", textarea: true, rows: 3, wide: true },
+  { key: "body", label: "Full message", textarea: true, rows: 18, wide: true },
 ];
 
 const sermonFields: Field[] = [
@@ -163,8 +180,8 @@ function FieldInput({
       <textarea
         value={String(value ?? "")}
         onChange={(e) => onChange(e.target.value)}
-        rows={2}
-        className="rounded-lg border border-night-900/15 bg-cream-50 px-3 py-2 text-sm outline-none focus:border-gold-600"
+        rows={field.rows ?? 2}
+        className="rounded-lg border border-night-900/15 bg-cream-50 px-3 py-2 text-sm leading-relaxed outline-none focus:border-gold-600"
       />
     );
   }
@@ -223,6 +240,22 @@ export function AdminEditor({ initialContent }: { initialContent: SiteContent })
       if (to < 0 || to >= list.length) return c;
       [list[index], list[to]] = [list[to], list[index]];
       return { ...c, [key]: list } as SiteContent;
+    });
+  }
+
+  function addPost() {
+    setContent((c) => {
+      const list = c.posts ?? [];
+      return {
+        ...c,
+        posts: [
+          ...list,
+          {
+            id: `post-${Date.now()}`,
+            ...emptyItem(postFields),
+          } as unknown as (typeof list)[number],
+        ],
+      } as SiteContent;
     });
   }
 
@@ -292,6 +325,7 @@ export function AdminEditor({ initialContent }: { initialContent: SiteContent })
       ...simpleSections.map((s) => ({ key: s.key, label: s.title })),
       { key: "gallery", label: "Gallery" },
       { key: "sermons", label: "Sermons" },
+      { key: "posts", label: "Blog" },
       { key: "leaders", label: "Leadership" },
       { key: "branches", label: "Branches" },
       { key: "links", label: "Navigation & Social" },
@@ -567,6 +601,56 @@ export function AdminEditor({ initialContent }: { initialContent: SiteContent })
           </Card>
         ) : null}
 
+        {/* -------- BLOG -------- */}
+        {tab === "posts" ? (
+          <Card
+            title="Blog Posts"
+            subtitle="Each post shows as a summary card in the middle of the homepage. Clicking a card opens the full message on its own page."
+          >
+            <p className="mb-5 rounded-2xl border border-gold-600/25 bg-gold-500/10 p-4 text-sm leading-relaxed text-night-900/75">
+              <span className="font-semibold text-night-900">Writing the message:</span>{" "}
+              leave a blank line between paragraphs. Start a line with{" "}
+              <code className="rounded bg-cream-200 px-1.5 py-0.5 text-xs">##</code>{" "}
+              to make it a heading, and with{" "}
+              <code className="rounded bg-cream-200 px-1.5 py-0.5 text-xs">1.</code> to open
+              a numbered point.
+            </p>
+            <div className="space-y-4">
+              {(content.posts as unknown as Record<string, string>[]).map((item, i) => (
+                <div key={item.id || i} className="rounded-2xl border border-night-900/10 bg-cream-50 p-4">
+                  <div className="mb-3 flex items-center justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-night-900/50">
+                      Post #{i + 1}
+                      {item.title ? ` · ${item.title}` : ""}
+                    </p>
+                    <div className="flex gap-1">
+                      <SmallBtn onClick={() => moveItem("posts", i, -1)}>↑</SmallBtn>
+                      <SmallBtn onClick={() => moveItem("posts", i, 1)}>↓</SmallBtn>
+                      <SmallBtn danger onClick={() => removeItem("posts", i)}>✕</SmallBtn>
+                    </div>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {postFields.map((f) => (
+                      <LabeledField
+                        key={f.key}
+                        label={f.label ?? f.key}
+                        className={f.wide ? "sm:col-span-2" : undefined}
+                      >
+                        <FieldInput
+                          field={f}
+                          value={item[f.key]}
+                          onChange={(v) => updateList("posts", i, f.key, v)}
+                        />
+                      </LabeledField>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <AddButton label="Add Blog Post" onClick={addPost} />
+          </Card>
+        ) : null}
+
         {/* -------- LEADERS -------- */}
         {tab === "leaders" ? (
           <Card
@@ -796,9 +880,17 @@ function Grid({ children }: { children: React.ReactNode }) {
   return <div className="grid gap-4 sm:grid-cols-2">{children}</div>;
 }
 
-function LabeledField({ label, children }: { label: string; children: React.ReactNode }) {
+function LabeledField({
+  label,
+  children,
+  className,
+}: {
+  label: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <label className="flex flex-col gap-1.5">
+    <label className={cn("flex flex-col gap-1.5", className)}>
       <span className="text-xs font-semibold uppercase tracking-wide text-night-900/50">
         {label}
       </span>

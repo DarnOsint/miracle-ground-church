@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { navigation, socialLinks } from "@/lib/site";
 import { cn } from "@/lib/cn";
 import { Logo } from "@/components/logo";
@@ -12,6 +13,7 @@ const tiktokHref =
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -19,6 +21,10 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const onHome = pathname === "/";
+  const navHref = (href: string) =>
+    !onHome && href.startsWith("#") ? `/${href}` : href;
 
   return (
     <header
@@ -53,7 +59,7 @@ export function SiteHeader() {
             {navigation.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={navHref(item.href)}
                 className="text-sm font-semibold text-night-900/80 transition-colors hover:text-gold-600"
               >
                 {item.label}

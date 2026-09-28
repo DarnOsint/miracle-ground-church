@@ -4,6 +4,7 @@ import { About } from "@/components/about";
 import { ScriptureSlideshow } from "@/components/scripture-slideshow";
 import { Beliefs } from "@/components/beliefs";
 import { Ministries } from "@/components/ministries";
+import { Blog } from "@/components/blog";
 import { Sermons } from "@/components/sermons";
 import { Services } from "@/components/services";
 import { Branches } from "@/components/branches";
@@ -27,6 +28,7 @@ export default function Home() {
         <ScriptureSlideshow />
         <Beliefs />
         <Ministries />
+        <Blog />
         <Sermons />
         <Services />
         <Branches />

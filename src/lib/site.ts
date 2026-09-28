@@ -1,5 +1,5 @@
 import content from "@/data/site-content.json";
-import type { SiteContent } from "@/lib/types";
+import type { BlogPost, SiteContent } from "@/lib/types";
 
 const c = content as unknown as SiteContent;
 
@@ -39,6 +39,46 @@ export const siteConfig = {
 export const navigation = c.navigation;
 export const socialLinks = c.socialLinks;
 export { phoneToWhatsApp as whatsappHref };
+
+export const posts: BlogPost[] = [...(c.posts ?? [])].sort(
+  (a, b) => postTime(b) - postTime(a),
+);
+
+export function postSlug(post: BlogPost) {
+  const fromTitle = post.title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+  return fromTitle || post.id || "post";
+}
+
+export function postHref(post: BlogPost) {
+  return `/blog/${postSlug(post)}`;
+}
+
+export function getPost(slug: string) {
+  return posts.find((post) => postSlug(post) === slug);
+}
+
+export function postDate(post: BlogPost) {
+  const date = new Date(post.date);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+export function formatPostDate(post: BlogPost) {
+  const date = postDate(post);
+  if (!date) return post.date || "";
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function postTime(post: BlogPost) {
+  return postDate(post)?.getTime() ?? 0;
+}
 
 export function mapsUrl(query: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
